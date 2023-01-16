@@ -50,6 +50,11 @@ public class Controller {
     @Post("/usingWrapperClass")
     public WrapperClass usingWrapperClass(@Body WrapperClass wrapperClass) {
         log.info("CONTROLLER LOG: {}", wrapperClass);
+        // WORKS
+        // CONTROLLER LOGGER OUTPUT
+        // ACTUAL: WrapperClass{wrapperClass={rootKey={key1=MyDto{mapOfStrings={Jackson=GOOD, John=BETTER, Alice=BEST}, anotherValue='Some random string.'}, key2=null}}}
+        // EXPECTED: WrapperClass{wrapperClass={rootKey={key1=MyDto{mapOfStrings={Jackson=GOOD, John=BETTER, Alice=BEST}, anotherValue='Some random string.'}, key2=null}}}
+        // NOTE: the 'key2' is present and the value is 'null' as expected/wanted
 
         // Ignore the return value.
         return wrapperClass;
