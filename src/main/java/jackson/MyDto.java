@@ -1,17 +1,28 @@
 package jackson;
 
 import java.util.Objects;
+import java.util.Map;
 
 public class MyDto {
 
-    private String name;
+    private Map<String, String> mapOfStrings;
 
-    public String getName() {
-        return name;
+    private String anotherValue;
+
+    public Map<String, String> getMapOfStrings() {
+        return mapOfStrings;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMapOfStrings(Map<String, String> mapOfStrings) {
+        this.mapOfStrings = mapOfStrings;
+    }
+
+    public String getAnotherValue() {
+        return anotherValue;
+    }
+
+    public void setAnotherValue(String anotherValue) {
+        this.anotherValue = anotherValue;
     }
 
     @Override
@@ -19,18 +30,19 @@ public class MyDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MyDto myDto = (MyDto) o;
-        return Objects.equals(name, myDto.name);
+        return Objects.equals(mapOfStrings, myDto.mapOfStrings) && Objects.equals(anotherValue, myDto.anotherValue);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(mapOfStrings, anotherValue);
     }
 
     @Override
     public String toString() {
         return "MyDto{" +
-                "name='" + name + '\'' +
+                "mapOfStrings=" + mapOfStrings +
+                ", anotherValue='" + anotherValue + '\'' +
                 '}';
     }
 }
